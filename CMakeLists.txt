@@ -68,10 +68,6 @@ if(BUILD_GLFW_VERSION)
             openglcontext.h
             )
 
-    if(CMAKE_COMPILER_IS_GNUCXX)
-        target_link_libraries(get_image_glfw PRIVATE -static-libgcc -static-libstdc++)
-    endif()
-
     target_link_libraries(get_image_glfw PUBLIC glfw)
     target_compile_definitions(get_image_glfw PUBLIC -DGETIMAGE_CONTEXT=CONTEXT_GLFW)
     target_include_directories(get_image_glfw PUBLIC include)
@@ -109,10 +105,6 @@ if(BUILD_EGL_VERSION)
             main.cpp
             openglcontext.h
             )
-
-    if(CMAKE_COMPILER_IS_GNUCXX)
-        target_link_libraries(get_image_egl PRIVATE -static-libgcc -static-libstdc++)
-    endif()
 
     target_compile_definitions(get_image_egl PUBLIC -DGETIMAGE_CONTEXT=CONTEXT_EGL)
     target_include_directories(get_image_egl PUBLIC include)
